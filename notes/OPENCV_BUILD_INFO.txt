@@ -1,0 +1,131 @@
+General configuration for OpenCV 3.2.0 =====================================
+  Version control:               unknown
+
+  Extra modules:
+    Location (extra):            /build/opencv-L65chJ/opencv-3.2.0+dfsg/contrib/modules
+    Version control (extra):     unknown
+
+  Platform:
+    Timestamp:                   2019-02-12T11:26:31Z
+    Host:                        Linux 4.4.0-124-generic armv8l
+    CMake:                       3.13.4
+    CMake generator:             Unix Makefiles
+    CMake build tool:            /usr/bin/make
+    Configuration:               Release
+
+  C/C++:
+    Built as dynamic libs?:      YES
+    C++ Compiler:                /usr/bin/c++  (ver 8.2.0)
+    C++ flags (Release):         -g -O2 -fdebug-prefix-map=/build/opencv-L65chJ/opencv-3.2.0+dfsg=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -mfp16-format=ieee -ffunction-sections -fvisibility=hidden -fvisibility-inlines-hidden -g -O2 -fdebug-prefix-map=/build/opencv-L65chJ/opencv-3.2.0+dfsg=. -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG
+    C++ flags (Debug):           -g -O2 -fdebug-prefix-map=/build/opencv-L65chJ/opencv-3.2.0+dfsg=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -mfp16-format=ieee -ffunction-sections -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+    C Compiler:                  /usr/bin/cc
+    C flags (Release):           -g -O2 -fdebug-prefix-map=/build/opencv-L65chJ/opencv-3.2.0+dfsg=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -mfp16-format=ieee -ffunction-sections -fvisibility=hidden -g -O2 -fdebug-prefix-map=/build/opencv-L65chJ/opencv-3.2.0+dfsg=. -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG
+    C flags (Debug):             -g -O2 -fdebug-prefix-map=/build/opencv-L65chJ/opencv-3.2.0+dfsg=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -fdiagnostics-show-option -pthread -fomit-frame-pointer -mfp16-format=ieee -ffunction-sections -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+    Linker flags (Release):      -Wl,-z,relro -Wl,-z,now -Wl,-z,relro -Wl,-z,now
+    Linker flags (Debug):        -Wl,-z,relro -Wl,-z,now
+    ccache:                      NO
+    Precompiled headers:         NO
+    Extra dependencies:          /usr/lib/arm-linux-gnueabihf/libwebp.so gdcmMSFF /usr/lib/arm-linux-gnueabihf/libImath.so /usr/lib/arm-linux-gnueabihf/libIlmImf.so /usr/lib/arm-linux-gnueabihf/libIex.so /usr/lib/arm-linux-gnueabihf/libHalf.so /usr/lib/arm-linux-gnueabihf/libIlmThread.so /usr/lib/libgdal.so gtk-3 gdk-3 pangocairo-1.0 pango-1.0 atk-1.0 cairo-gobject cairo gdk_pixbuf-2.0 gio-2.0 gobject-2.0 glib-2.0 gthread-2.0 dc1394 avcodec avformat avutil swscale avresample gphoto2 gphoto2_port /usr/lib/arm-linux-gnueabihf/hdf5/serial/libhdf5.so /usr/lib/arm-linux-gnueabihf/libpthread.so /usr/lib/arm-linux-gnueabihf/libsz.so /usr/lib/arm-linux-gnueabihf/libdl.so /usr/lib/arm-linux-gnueabihf/libm.so vtkRenderingOpenGL vtkImagingHybrid vtkIOImage vtkCommonDataModel vtkCommonMath vtkCommonCore vtksys vtkCommonMisc vtkCommonSystem vtkCommonTransforms vtkCommonExecutionModel vtkDICOMParser vtkIOCore /usr/lib/arm-linux-gnueabihf/libz.so vtkmetaio /usr/lib/arm-linux-gnueabihf/libjpeg.so /usr/lib/arm-linux-gnueabihf/libpng.so /usr/lib/arm-linux-gnueabihf/libtiff.so vtkImagingCore vtkRenderingCore vtkCommonColor vtkFiltersExtraction vtkFiltersCore vtkFiltersGeneral vtkCommonComputationalGeometry vtkFiltersStatistics vtkImagingFourier vtkalglib vtkFiltersGeometry vtkFiltersSources vtkInteractionStyle vtkRenderingLOD vtkFiltersModeling vtkIOPLY vtkIOGeometry vtkFiltersTexture vtkRenderingFreeType /usr/lib/arm-linux-gnueabihf/libfreetype.so vtkftgl vtkIOExport vtkRenderingAnnotation vtkImagingColor vtkRenderingContext2D vtkRenderingGL2PS vtkRenderingContextOpenGL /usr/lib/arm-linux-gnueabihf/libgl2ps.so vtkRenderingLabel tesseract lept dl m pthread rt tbb
+    3rdparty dependencies:
+
+  OpenCV modules:
+    To be built:                 core flann hdf imgproc ml photo reg surface_matching video viz freetype fuzzy imgcodecs shape videoio highgui objdetect plot superres ts xobjdetect xphoto bgsegm bioinspired dpm face features2d line_descriptor saliency text calib3d ccalib datasets rgbd stereo stitching videostab ximgproc aruco optflow phase_unwrapping structured_light java python2 python3
+    Disabled:                    world contrib_world
+    Disabled by dependency:      tracking
+    Unavailable:                 cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cnn_3dobj cvv dnn matlab sfm
+
+  GUI:
+    QT:                          NO
+    GTK+ 3.x:                    YES (ver 3.24.5)
+    GThread :                    YES (ver 2.58.3)
+    GtkGlExt:                    NO
+    OpenGL support:              NO
+    VTK support:                 YES (ver 6.3.0)
+
+  Media I/O:
+    ZLib:                        /usr/lib/arm-linux-gnueabihf/libz.so (ver 1.2.11)
+    JPEG:                        /usr/lib/arm-linux-gnueabihf/libjpeg.so (ver )
+    WEBP:                        /usr/lib/arm-linux-gnueabihf/libwebp.so (ver encoder: 0x020e)
+    PNG:                         /usr/lib/arm-linux-gnueabihf/libpng.so (ver 1.6.36)
+    TIFF:                        /usr/lib/arm-linux-gnueabihf/libtiff.so (ver 42 - 4.0.10)
+    JPEG 2000:                   NO
+    OpenEXR:                     /usr/lib/arm-linux-gnueabihf/libImath.so /usr/lib/arm-linux-gnueabihf/libIlmImf.so /usr/lib/arm-linux-gnueabihf/libIex.so /usr/lib/arm-linux-gnueabihf/libHalf.so /usr/lib/arm-linux-gnueabihf/libIlmThread.so (ver 2.2.1)
+    GDAL:                        /usr/lib/libgdal.so
+    GDCM:                        YES (ver 2.8.8)
+
+  Video I/O:
+    DC1394 1.x:                  NO
+    DC1394 2.x:                  YES (ver 2.2.5)
+    FFMPEG:                      YES
+      avcodec:                   YES (ver 58.35.100)
+      avformat:                  YES (ver 58.20.100)
+      avutil:                    YES (ver 56.22.100)
+      swscale:                   YES (ver 5.3.100)
+      avresample:                YES (ver 4.0.0)
+    GStreamer:                   NO
+    OpenNI:                      NO
+    OpenNI PrimeSensor Modules:  NO
+    OpenNI2:                     NO
+    PvAPI:                       NO
+    GigEVisionSDK:               NO
+    Aravis SDK:                  NO
+    UniCap:                      NO
+    UniCap ucil:                 NO
+    V4L/V4L2:                    NO/YES
+    XIMEA:                       NO
+    Xine:                        NO
+    gPhoto2:                     YES
+
+  Parallel framework:            TBB (ver 2018.0 interface 10006)
+
+  Other third-party libraries:
+    Use IPP:                     NO
+    Use VA:                      NO
+    Use Intel VA-API/OpenCL:     NO
+    Use Lapack:                  NO
+    Use Eigen:                   YES (ver 3.3.7)
+    Use Cuda:                    NO
+    Use OpenCL:                  YES
+    Use OpenVX:                  NO
+    Use custom HAL:              NO
+
+  OpenCL:                        <Dynamic loading of OpenCL library>
+    Include path:                /usr/include/CL
+    Use AMDFFT:                  NO
+    Use AMDBLAS:                 NO
+
+  Python 2:
+    Interpreter:                 /usr/bin/python2.7 (ver 2.7.15)
+    Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython2.7.so (ver 2.7.15+)
+    numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.16.1)
+    packages path:               lib/python2.7/dist-packages
+
+  Python 3:
+    Interpreter:                 /usr/bin/python3 (ver 3.7.2)
+    Libraries:                   /usr/lib/arm-linux-gnueabihf/libpython3.7m.so (ver 3.7.2+)
+    numpy:                       /usr/lib/python3/dist-packages/numpy/core/include (ver 1.16.1)
+    packages path:               lib/python3.7/dist-packages
+
+  Python (for build):            /usr/bin/python2.7
+
+  Java:
+    ant:                         /usr/bin/ant (ver 1.10.5)
+    JNI:                         /usr/lib/jvm/default-java/include /usr/lib/jvm/default-java/include/linux /usr/lib/jvm/default-java/include
+    Java wrappers:               YES
+    Java tests:                  NO
+
+  Matlab:                        Matlab not found or implicitly disabled
+
+  Documentation:
+    Doxygen:                     /usr/bin/doxygen (ver 1.8.13)
+
+  Tests and samples:
+    Tests:                       NO
+    Performance tests:           YES
+    C/C++ Examples:              YES
+
+  Install path:                  /usr
+
+  cvconfig.h is in:              /build/opencv-L65chJ/opencv-3.2.0+dfsg/obj-arm-linux-gnueabihf
+-----------------------------------------------------------------
+
