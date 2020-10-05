@@ -12,8 +12,9 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -v -ltbb -lz -lm -lswresam
                            -lshine -lxvidcore -lwavpack -lwebp -lwebpmux -lx265 -lgmp \
                            -lva -lrt -lX11 -lbz2 -lopenmpt -lusb -lxml2 -lgdcmCommon \
                            -lgdcmDICT -lgdcmDSED -lgdcmIOD -lgdcmjpeg12 -lgdcmjpeg16 \
-                           -lgdcmjpeg8 -lgdcmMEXD -lgdcmMSFF -lgdal -lgnutls -lpostproc \
+                           -lgdcmjpeg8 -lgdcmMEXD -lgdcmMSFF -lgdal -lpostproc \
                            -lmp3lame -ltwolame -lvorbis -lvorbisenc -lvorbisfile -lx264 \
                            -lx265 -lspeex -lopus -lvpx -ltheora -logg -lgstvideo-1.0 \
                            -lgstvideo-1.0 -lgstreamer-1.0")
 
+set(OPENCV_INCLUDE_DIR /usr/include/opencv4)

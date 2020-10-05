@@ -2,7 +2,7 @@ How to Build a CGI That Does Image Processing for a 5 Mega-Pixel Motion-Activate
 ---------------------------------------------------------------------------------------------
 This project demonstrates how to receive images from 
 [this camera](https://github.com/patrickmoffitt/5mp_motion_camera/) and process them
-into still images and movies using OpenCV and FFMPEG on Raspbian Buster (recently rebranded as Raspberry Pi OS).
+into still images and movies using OpenCV and FFMPEG on Ubuntu 20.04 running on a Raspberry Pi model 4b.
 The camera sends the following JSON message via HTTP POST:
 
 ```json
@@ -37,25 +37,30 @@ convert it to MP4 and save it as a movie. If it does not, we attempt to save as 
 saving frame numbered images. See `mjpeg_utils::save_avi_frames` for how FFMPEG is used within OpenCV to accomplish 
 all this image processing.
 
+October 2020 Update
+-------------------
+I revised the project to build directly on Ubuntu 20.04 (64 bit) for the Raspberry Pi model 4b. If you are interested in
+the previous version which used Raspberry Pi OS (aka Raspbian) access the repository at commit 
+[511c7b8](https://github.com/patrickmoffitt/jpeg_catcher/commit/511c7b83ee006d1bd531018e8a37f32332fc08d4)
+
 Building
 --------
 If you haven't already:
 ```bash
-sudo apt-get install build-essential libcurl-dev libmagic-dev
+sudo apt-get install build-essential libcurl-dev libmagic-dev cmake
 ```
 It's widely known that the hardest part of using OpenCV is getting it and its dependencies installed. Once you get past
-that it's a pleasure to use. I built this project on a Raspberry Pi model 4B running the latest (June 2020) Raspbian
-(now Raspberry Pi OS). I did that because I wanted the project to be accessible to those on a limited budget. The Pi is
+that it's a pleasure to use. I built this project on a Raspberry Pi model 4B running the latest (October 2020) Ubuntu 
+20.04 64 bit. I did that because I wanted the project to be accessible to those on a limited budget. The Pi is
 famously affordable and it has more than enough capability for the tasks at hand. That said, if you have access to a 
 laptop running Ubuntu you might find that a better option. To begin the building, 
-[install Clang and LLVM](notes/CLANG_LLVM_INSTALL.MD). I copied these directions from https://apt.llvm.org/ so be sure
-to check there first to see if the directions have changed. BTW: You may be tempted to build with GCC; if you get it to 
+[install Clang 9](notes/CLANG_INSTALL.MD). BTW: You may be tempted to build with GCC; if you get it to 
 work you're a better build master than me. After that, [install OpenCV and it's dependencies](notes/OPENCV_INSTALL.MD). 
 Lastly run `cmake` in the usual way in the project root folder.
 
 Installing the CGI
 ------------------
-On Raspbian, as root, do the following;
+As root, do the following;
 1. Copy the CGI binary you built (jpeg_catcher) with cmake into `/usr/lib/cgi-bin/` If you renamed the project in 
 CMakeLists.txt the binary will have a new name as well. Be sure to reflect this name in `HTTP_HOST_URL` over in the 
 [camera project's](https://github.com/patrickmoffitt/5mp_motion_camera/) platformio.ini. 
@@ -63,46 +68,57 @@ CMakeLists.txt the binary will have a new name as well. Be sure to reflect this 
 ```bash
 sudo a2enmod cgi
 ```
+3. Restart Apache
+```bash
+sudo systemctl restart apache2
+```
+
+Configuring Apache2 to Listen on Port 4444
+------------------------
+1. As root, edit ```/etc/apache2/ports.conf``` and add ```Listen 4444``` on a line below ```Listen 80``` and save the 
+file.
 
 Configuring the Web Root
 ------------------------
--1. As root, open `/etc/apache2/sites-available/000-default.conf` and paste the following in just above the closing
+-1. As root, open `/etc/apache2/sites-available/000-default.conf` and paste the following in just below the closing
 `</VirtualHost>` tag.
 ```language-apache
-<Directory /var/www/html/motion_camera>
-   Options +Indexes 
-   AddType image/svg+xml svg svgz
-   AddEncoding gzip svgz
-   <IfModule mod_autoindex.c>
-       IndexOptions IgnoreCase FancyIndexing HTMLTable SuppressHTMLPreamble FoldersFirst VersionSort NameWidth=* DescriptionWidth=* XHTML IconHeight=16 IconWidth=16
-       IndexIgnore .. 
-       IndexOrderDefault Descending Name
-
-       IndexStyleSheet ./fancy-index/style.css
-       HeaderName ./fancy-index/header.html
-       ReadmeName ./fancy-index/footer.html
-
-       # IGNORE THESE FILES
-       IndexIgnoreReset ON
-       IndexIgnore fancy-index 
-
-       # DEFAULT ICON
-       DefaultIcon ./fancy-index/icons/file-text.svg
-
-       AddIcon ./fancy-index/icons/back.svg ..
-       AddIcon ./fancy-index/icons/file-directory.svg ^^DIRECTORY^^
-       # https://github.com/file-icons/source
-       AddIcon ./fancy-index/icons/file-media.svg .jpg .jpeg
-       AddIcon ./fancy-index/icons/Video.svg .avi .mp4
-       # https://upload.wikimedia.org/wikipedia/commons/d/da/Battery-303889.svg
-       AddIcon ./fancy-index/icons/battery.svg .pwr
-       AddDescription "MPEG Layer 4 Format" .mp4
-       AddDescription "Joint Photographics Experts Group" .jpg .jpeg .jpe .jfif
-       AddDescription "Audio Video Interleave - Motion JPEG" .avi
-       AddDescription "Camera battery power available" .pwr
-
-    </IfModule>
-</Directory>
+<VirtualHost *:4444>
+    <Directory /var/www/html/motion_camera>
+        Options +Indexes 
+        AddType image/svg+xml svg svgz
+        AddEncoding gzip svgz
+        <IfModule mod_autoindex.c>
+        IndexOptions IgnoreCase FancyIndexing HTMLTable SuppressHTMLPreamble FoldersFirst VersionSort NameWidth=* DescriptionWidth=* XHTML IconHeight=16 IconWidth=16
+        IndexIgnore .. 
+        IndexOrderDefault Descending Name
+        
+        IndexStyleSheet ./fancy-index/style.css
+        HeaderName ./fancy-index/header.html
+        ReadmeName ./fancy-index/footer.html
+        
+        # IGNORE THESE FILES
+        IndexIgnoreReset ON
+        IndexIgnore fancy-index 
+        
+        # DEFAULT ICON
+        DefaultIcon ./fancy-index/icons/file-text.svg
+        
+        AddIcon ./fancy-index/icons/back.svg ..
+        AddIcon ./fancy-index/icons/file-directory.svg ^^DIRECTORY^^
+        # https://github.com/file-icons/source
+        AddIcon ./fancy-index/icons/file-media.svg .jpg .jpeg
+        AddIcon ./fancy-index/icons/Video.svg .avi .mp4
+        # https://upload.wikimedia.org/wikipedia/commons/d/da/Battery-303889.svg
+        AddIcon ./fancy-index/icons/battery.svg .pwr
+        AddDescription "MPEG Layer 4 Format" .mp4
+        AddDescription "Joint Photographics Experts Group" .jpg .jpeg .jpe .jfif
+        AddDescription "Audio Video Interleave - Motion JPEG" .avi
+        AddDescription "Camera battery power available" .pwr
+        
+        </IfModule>
+    </Directory>
+</VirtualHost>
 ```
 
 -2. As root, make the directory `/var/www/html/motion_camera` and copy the contents of this project's 

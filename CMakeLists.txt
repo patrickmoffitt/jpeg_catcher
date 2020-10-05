@@ -27,6 +27,8 @@ add_executable(${PROJECT_NAME} main.cpp
 
 include(libmagic.cmake)
 
+target_include_directories(${PROJECT_NAME} BEFORE PUBLIC ${OPENCV_INCLUDE_DIR})
+
 target_include_directories(${PROJECT_NAME} BEFORE PUBLIC ${CURL_INCLUDE_DIR}/curl)
 target_link_libraries(${PROJECT_NAME} curl)
 

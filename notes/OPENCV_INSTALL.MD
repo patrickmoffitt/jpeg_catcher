@@ -11,7 +11,7 @@ sudo apt-get install libopencv-core-dev libopencv-highgui-dev \
     libavformat-dev libxvidcore-dev libshine-dev libc6-dev \
     libswscale-dev libgmp-dev libx11-dev libtheora-dev \
     libavdevice-dev libvorbis-dev libogg-dev libpostproc-dev \
-    libmp3lame-dev libcrystalhd-dev libx264-dev libspeex-dev \
+    libmp3lame-dev libx264-dev libspeex-dev \
     libopus-dev libvpx-dev libgsm1-dev libwavpack-dev \
     libwebp-dev libx265-dev libva-dev librtaudio-dev \
     libbz2-dev libopenmpt-dev libusb-dev libgdcm2-dev \
@@ -30,7 +30,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -v -ltbb -lz -lm -lswresam
                            -lshine -lxvidcore -lwavpack -lwebp -lwebpmux -lx265 -lgmp \
                            -lva -lrt -lX11 -lbz2 -lopenmpt -lusb -lxml2 -lgdcmCommon \
                            -lgdcmDICT -lgdcmDSED -lgdcmIOD -lgdcmjpeg12 -lgdcmjpeg16 \
-                           -lgdcmjpeg8 -lgdcmMEXD -lgdcmMSFF -lgdal -lgnutls -lpostproc \
+                           -lgdcmjpeg8 -lgdcmMEXD -lgdcmMSFF -lgdal -lpostproc \
                            -lmp3lame -ltwolame -lvorbis -lvorbisenc -lvorbisfile -lx264 \
                            -lx265 -lspeex -lopus -lvpx -ltheora -logg -lgstvideo-1.0 \
                            -lgstvideo-1.0 -lgstreamer-1.0")
