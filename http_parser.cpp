@@ -50,7 +50,10 @@ Http_parser::~Http_parser() {
  */
 void Http_parser::parse_raw_content_type() {
     content_type = env["content_type"];
-    if (content_type != "multipart/form-data") return; ///< No boundary or charset to parse.
+    const string mime_type{"multipart/form-data"};
+    if (content_type.compare(0, mime_type.length(), mime_type) != 0)
+        return; ///< No boundary or charset to parse.
+
     smatch match;
     regex_search(env["content_type"], match, content_type_regex);
     if (not match.empty()) {
@@ -65,8 +68,9 @@ void Http_parser::parse_raw_content_type() {
             }
         }
     } else {
-        cerr << env["script_name"] << " parse_raw_content_type() Error, No match found in: ("
-        << env["content_type"] << ")" << endl;
+        DEBUG(env["script_name"].c_str(),
+              " parse_raw_content_type() Error, No match found in: (",
+              env["content_type"].c_str(), ")");
     }
 }
 
